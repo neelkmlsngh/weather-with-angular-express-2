@@ -10,17 +10,22 @@ import { Subject } from 'rxjs/Subject';
 })
 export class AppComponent {
   results: Object;
-  searchTerm = new Subject<string>();
+  
 
   constructor(private weatherSearchService: WeatherSearchService) {}
 
 
-  getDetails(){
-    this.weatherSearchService.searchEntries()
+  getDetails(searchTerm){
+    //alert(searchTerm.value
+
+    this.weatherSearchService.searchEntries(searchTerm.value)
       .subscribe(results => {
-        this.results = results.results;
+        this.results = results.forecast.forecastday;
+        console.log(this.results)
       });
   }
+
+
 
     
 }

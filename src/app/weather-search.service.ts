@@ -8,20 +8,15 @@ import 'rxjs/add/operator/switchMap';
 
 @Injectable()
 export class WeatherSearchService {
-  // baseUrl: string = 'api.openweathermap.org/data/2.5/forecast/daily';
-  // queryUrl: string = '?q=London&mode=xml&units=metric&cnt=7';
+  
 
   constructor(private http: Http) { }
 
-  // search(terms: Observable<string>) {
-  //   return terms.debounceTime(400)
-  //     .distinctUntilChanged()
-  //     .switchMap(term => this.searchEntries(term));
-  // }
 
-  searchEntries() {
+  searchEntries(searchTerm:any) {
+
     return this.http
-        .get('http://api.apixu.com/v1/forecast.json?key=2e3212ea081543c09a6130414170609&q=Paris&days=10')
+        .get('http://api.apixu.com/v1/forecast.json?key=2e3212ea081543c09a6130414170609&q='+searchTerm+'&days=10')
         .map(res => res.json());
   }
 }
