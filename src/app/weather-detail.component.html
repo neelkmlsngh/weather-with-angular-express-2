@@ -1,3 +1,32 @@
-<p>
-  weather-detail works!
-</p>
+<div class="container">
+         <hr>
+
+            
+            <div class="row row-margin-bottom">
+            <div class="col-md-12 no-padding lib-item" data-category="view">
+                <div class="lib-panel">
+                  {{results.location.name}}
+                    <div class="row box-shadow" *ngFor="let item of results.forecast.forecastday">
+                        <div class="col-md-6" >
+                            <img class="lib-img-show" src="../assets/weather.png" alt="weather image">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="lib-row lib-header">
+                                Weather
+                                <div class="lib-header-seperator"></div>
+                                <p>DATE:{{item.date}}</p><hr>
+                                <p>MAX_TEMP:{{item.day.maxtemp_c}}</p><hr>
+                                <p>MIN_TEMP:{{item.day.mintemp_c}}</p>
+                            </div>
+                           
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>         
+           
+            </div>
+
+</div>         
+        
+        

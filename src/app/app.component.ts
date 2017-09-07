@@ -1,32 +1,16 @@
 import { Component } from '@angular/core';
-import { WeatherSearchService } from './weather-search.service';
-import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/map';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './weather-search.component.html',
-  styleUrls: ['./weather-search.component.css'],
-  providers: [WeatherSearchService]
+import 'rxjs/add/operator/map';@Component({
+selector: 'app-root',
+templateUrl: './app.component.html',
+styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  results: Object;
-  
+title = 'app';
+results:any;
 
-  constructor(private weatherSearchService: WeatherSearchService) {}
+onreceive(s:any){
+	this.results=s;
+	console.log(this.results);
+}
 
-
-  getDetails(searchTerm){
-    //alert(searchTerm.value
-
-    this.weatherSearchService.searchEntries(searchTerm.value)
-      .subscribe(results => {
-        this.results = results.forecast.forecastday;
-        console.log(this.results)
-      });
-  }
-
-
-
-    
 }
