@@ -7,7 +7,7 @@ styleUrls: ['./app.component.css']
 export class AppComponent {
 title = 'app';
 results:any;
-
+s:any={};
 onreceive(s:any){
 	this.results=s;
 	console.log(this.results);

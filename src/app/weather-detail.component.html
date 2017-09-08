@@ -1,24 +1,21 @@
-<div class="container">
-         <hr>
-
-            
+<div class="container weatherdata">  
             <div class="row row-margin-bottom">
             <div class="col-md-12 no-padding lib-item" data-category="view">
                 <div class="lib-panel">
-                  {{results.location.name}}
+                {{results.location.name}}
                     <div class="row box-shadow" *ngFor="let item of results.forecast.forecastday">
                         <div class="col-md-6" >
-                            <img class="lib-img-show" src="../assets/weather.png" alt="weather image">
+                            <img class="lib-img-show" src="../assets/worldmapcities.jpg" alt="weather image" width="400px">
                         </div>
                         <div class="col-md-6">
                             <div class="lib-row lib-header">
                                 Weather
                                 <div class="lib-header-seperator"></div>
                                 <p>DATE:{{item.date}}</p><hr>
-                                <p>MAX_TEMP:{{item.day.maxtemp_c}}</p><hr>
+                                <p>MAX_TEMP:{{item.day.maxtemp_c}}</p>
                                 <p>MIN_TEMP:{{item.day.mintemp_c}}</p>
                             </div>
-                           
+                           <button type="button" class="btn btn-success" (click)="saveData(item)">Add To Favourite</button>
                         </div>
                         <br>
                     </div>
@@ -27,6 +24,58 @@
            
             </div>
 
-</div>         
-        
-        
+</div>   
+<ul class="cards">
+  <li class="card">
+    <div class="card__inner">
+      <h2>New Delhi</h2>
+      <div class="card__buttons">
+        <a href="#">Explore</a>
+        <a href="#">Shop</a>
+      </div>
+    </div>
+    <h3 class="card__tagline">It will be a Sunny day.</h3>
+    <ul class="card__icons">
+      <li><i class="fa fa-coffee">10 Am: 25 <sup>0</sup>C</i></li>
+      <li><i class="fa fa-bolt">12 Pm: 37 <sup>0</sup>C</i></li>
+      <li><i class="fa fa-bolt">3 Pm: 37 <sup>0</sup>C</i></li>
+      <li><i class="fa fa-bolt">9 Pm: 25 <sup>0</sup>C</i></li>
+    </ul>
+    <p>max_temp::37 <sup>0</sup>C</p>
+  </li>
+  <li class="card">
+    <div class="card__inner">
+      <h2>Mumbai</h2>
+      <div class="card__buttons">
+        <a href="#">Explore</a>
+        <a href="#">Shop</a>
+      </div>
+    </div>
+    <h3 class="card__tagline">It will be a rainy day.</h3>
+    <ul class="card__icons">
+      <li><i class="fa fa-coffee">10 Am: 25 <sup>0</sup>C</i></li>
+      <li><i class="fa fa-bolt">12 Pm: 27 <sup>0</sup>C</i></li>
+      <li><i class="fa fa-bolt">3 Pm: 27 <sup>0</sup>C</i></li>
+      <li><i class="fa fa-bolt">9 Pm: 25 <sup>0</sup>C</i></li>
+    </ul>
+    <p>max_temp::27 <sup>0</sup>C</p>
+  </li>
+  <li class="card">
+    <div class="card__inner">
+      <h2>Kolkata</h2>
+      <div class="card__buttons">
+        <a href="#">Explore</a>
+        <a href="#">Shop</a>
+      </div>
+    </div>
+    <h3 class="card__tagline">it will be a Sunny day</h3>
+    <ul class="card__icons">
+      <li><i class="fa fa-coffee">10 Am: 25 <sup>0</sup>C</i></li>
+      <li><i class="fa fa-bolt">12 Pm: 32 <sup>0</sup>C</i></li>
+      <li><i class="fa fa-bolt">3 Pm: 35 <sup>0</sup>C</i></li>
+      <li><i class="fa fa-bolt">9 Pm: 25 <sup>0</sup>C</i></li>
+    </ul>
+    <p>max_temp::35 <sup>0</sup>C</p>
+  </li>
+</ul>      
+   

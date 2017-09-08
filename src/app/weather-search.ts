@@ -1,10 +1,6 @@
 import { Component,EventEmitter,Output } from '@angular/core';
 import { WeatherSearchService } from './weather-search.service';
-import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
-
-
-
 @Component({
   selector: 'app-search',
   templateUrl: './weather-search.component.html',
@@ -12,27 +8,32 @@ import 'rxjs/add/operator/map';
   providers: [WeatherSearchService]
 })
 export class WeatherSearchComponent {
-
   results: Object;
-
+  list:any = [];
+  data:any=[];
+  id:any=[];
   @Output() receive= new EventEmitter<any>();
-  
-
   constructor(private weatherSearchService: WeatherSearchService) {}
-
-
   getDetails(searchTerm:any){
-    //alert(searchTerm.value
-
-    this.weatherSearchService.searchEntries(searchTerm.value)
-      .subscribe(results => {
+        this.weatherSearchService.searchEntries(searchTerm.value)
+        .subscribe(results => {
         this.results = results;
-        console.log(this.results)
         this.receive.emit(this.results)
       });
   }
+  getFavoritesList(){
 
+   this.weatherSearchService.showFavList()
+       .subscribe((data)=>{
+         this.list=data;
+         console.log(this.list)
+       })
 
-
-    
+ }   
+ delete(id){
+ 	this.weatherSearchService.deleteData(id)
+ 	.subscribe((data)=>{
+ 		this.data=data;
+ 	})
+ }
 }

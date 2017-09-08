@@ -19,32 +19,37 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Climate</a>
       </li>
+      <a class="nav-link disabled" (click)="getFavoritesList()">Favourites</a>
+
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Favorites</a>
+        
+
       </li>
+
     </ul>
-    
-  </div>
-</nav>
-
-
- <div> 
-        
-        <div class="jumbotron searchBar">
-
-          <input #city value="">
-        
+    <div class="searchBar">
+          <input #city value="" placeholder="Search Your City">
           <input type="button" value="search"  name="click" (click)="getDetails(city)"> 
-          
-
         </div>
- </div> 
+  </div>
 
-   <!-- <app-channel [results]='results'></app-channel> --> 
+</nav>  
 
- 
- 
+<div class="row">
+  <div *ngIf="list">
+    <div *ngFor="let lists of list">
+      <ul>
+        <li>{{lists.city}}</li>
+        <li>{{lists.date}}</li>
+        <li>{{lists.maxtemp}}</li>
+        <li>{{lists.mintemp}}</li>
 
+        <button type="button" class="btn btn-outline-success">Edit</button>
+        <button type="button" class="btn btn-outline-success" (click)="delete(lists._id)">Delete</button>
+      </ul>
+    </div>
+  </div>
+</div>
 
 
 
